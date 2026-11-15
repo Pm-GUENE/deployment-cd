@@ -738,6 +738,12 @@ Configuration du pipeline Jenkins pour récupérer le `Jenkinsfile` depuis le d�
 
 ![Pipeline relié au dépôt Git](Screenshots/13-configuration-pipeline-scm.png)
 
+#### 14. Journal de scrutation Git
+
+Consultation du journal Jenkins confirmant la détection d'un changement sur la branche `main` du dépôt GitHub.
+
+![Journal de scrutation Git](Screenshots/14-journal-scrutation-git.png)
+
 Les captures servent de complément aux configurations et résultats décrits dans ce document. Les secrets et mots de passe ne doivent pas apparaître dans les captures partagées.
 
 ---
