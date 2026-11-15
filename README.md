@@ -644,18 +644,65 @@ Les captures ci-dessous documentent la configuration et les vérifications réal
 
 | Capture | Élément illustré |
 |---|---|
-| Capture | Élément illustré |
-|---|---|
-| ![Environnement Docker Compose](Screenshots/01-environnement-compose.png) | Définition des services et de l'environnement Docker Compose. |
-| ![Services actifs](Screenshots/02-services-actifs.png) | État des services déployés avec Docker Compose. |
-| ![Persistance PostgreSQL](Screenshots/03-Persistance%20PostgreSQL.png) | Vérification de la conservation des données PostgreSQL. |
-| ![Jenkins installé](Screenshots/04-jenkins-installe.png) | Installation et démarrage de Jenkins. |
-| ![Jenkins connecté à Docker](Screenshots/05-jenkins-docker.png) | Connexion de Jenkins au moteur Docker. |
-| ![Docker Compose dans Jenkins](Screenshots/06-compose-dans-jenkins.png) | Disponibilité de Docker Compose dans l'environnement Jenkins. |
-| ![Credential Docker Hub](Screenshots/07-credential-dockerhub.png) | Configuration du credential Docker Hub dans Jenkins. |
-| ![Job pipeline](Screenshots/08-job-pipeline.png) | Création et configuration du pipeline `CLINIC-CD`. |
-| ![Récupération des images](Screenshots/09-pull-images.png) | Récupération des images Docker Hub par le pipeline. |
-| ![Redéploiement](Screenshots/10-redeploiement.png) | Redéploiement des services par le pipeline Jenkins. |
+#### 1. Environnement Docker Compose
+
+Définition des services et de l'environnement Docker Compose.
+
+![Environnement Docker Compose](Screenshots/01-environnement-compose.png)
+
+#### 2. Services actifs
+
+État des services déployés avec Docker Compose.
+
+![Services actifs](Screenshots/02-services-actifs.png)
+
+#### 3. Persistance PostgreSQL
+
+Vérification de la conservation des données PostgreSQL.
+
+![Persistance PostgreSQL](Screenshots/03-Persistance%20PostgreSQL.png)
+
+#### 4. Jenkins installé
+
+Installation et démarrage de Jenkins.
+
+![Jenkins installé](Screenshots/04-jenkins-installe.png)
+
+#### 5. Jenkins connecté à Docker
+
+Connexion de Jenkins au moteur Docker.
+
+![Jenkins connecté à Docker](Screenshots/05-jenkins-docker.png)
+
+#### 6. Docker Compose dans Jenkins
+
+Disponibilité de Docker Compose dans l'environnement Jenkins.
+
+![Docker Compose dans Jenkins](Screenshots/06-compose-dans-jenkins.png)
+
+#### 7. Credential Docker Hub
+
+Configuration du credential Docker Hub.
+
+![Credential Docker Hub](Screenshots/07-credential-dockerhub.png)
+
+#### 8. Job pipeline
+
+Création et configuration du pipeline `CLINIC-CD`.
+
+![Job pipeline](Screenshots/08-job-pipeline.png)
+
+#### 9. Récupération des images
+
+Récupération des images Docker Hub par le pipeline.
+
+![Récupération des images](Screenshots/09-pull-images.png)
+
+#### 10. Redéploiement
+
+Redéploiement des services par le pipeline Jenkins.
+
+![Redéploiement](Screenshots/10-redeploiement.png)
 
 Les captures servent de complément aux configurations et résultats décrits dans ce document. Les secrets et mots de passe ne doivent pas apparaître dans les captures partagées.
 
