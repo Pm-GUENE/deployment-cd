@@ -229,23 +229,23 @@ Ce volume garantit la conservation des données PostgreSQL indépendamment du cy
 
 ## 6. Configuration des variables d'environnement
 
-Le fichier `.env` contient les paramètres nécessaires au fonctionnement des services.
+Le fichier `.env` contient les paramètres nécessaires au fonctionnement des services. Il est créé directement sur le serveur de déploiement et n'est pas versionné. Copiez `.env.example` vers `.env`, puis renseignez les valeurs propres à votre environnement.
 
 Exemple de structure :
 
 ```env
-POSTGRES_DB=nom_base
-POSTGRES_USER=utilisateur_db
-POSTGRES_PASSWORD=mot_de_passe_db
+POSTGRES_DB=clinic
+POSTGRES_USER=clinic_user
+POSTGRES_PASSWORD=remplacer_par_un_mot_de_passe_fort
 
-DATABASE_URL=postgresql+psycopg2://utilisateur_db:mot_de_passe_db@db:5432/nom_base
+DATABASE_URL=postgresql+psycopg2://clinic_user:remplacer_par_un_mot_de_passe_fort@db:5432/clinic
 
 ADMIN_IDENTIFIANT=admin
-ADMIN_PASSWORD=mot_de_passe_admin
+ADMIN_PASSWORD=remplacer_par_un_mot_de_passe_admin
 
-DEMO_PASSWORD=mot_de_passe_demo
+DEMO_PASSWORD=remplacer_par_un_mot_de_passe_demo
 
-JWT_SECRET=secret_jwt
+JWT_SECRET=remplacer_par_une_cle_aleatoire_longue
 JWT_EXPIRE_MINUTES=480
 
 CORS_ORIGINS=http://localhost
@@ -425,7 +425,7 @@ Fin du pipeline
     SUCCESS        FAILURE
 ```
 
-Le pipeline est actuellement déclenché manuellement depuis l'interface Jenkins avec l'action **Build Now**.
+Le job `CLINIC-CD` est déclenché automatiquement par la scrutation périodique SCM configurée dans Jenkins. Jenkins vérifie le dépôt GitHub et lance le pipeline lorsqu'un nouveau commit est détecté sur la branche surveillée. Le pipeline récupère alors les images publiées sur Docker Hub et redéploie les services.
 
 ---
 
@@ -465,13 +465,9 @@ PostgreSQL :
 docker compose logs -f db
 ```
 
-### 10.4. Déploiement depuis Jenkins
+### 10.4. Déploiement automatique depuis Jenkins
 
-1. Accéder à Jenkins.
-2. Ouvrir le job `CLINIC-CD`.
-3. Cliquer sur **Build Now**.
-4. Sélectionner le build exécuté.
-5. Consulter **Console Output**.
+Après un commit sur la branche surveillée, Jenkins détecte automatiquement le changement et exécute `CLINIC-CD`. Pour suivre le déploiement, ouvrir le job dans Jenkins, sélectionner le build correspondant et consulter **Console Output**.
 
 Le résultat attendu est :
 
@@ -728,7 +724,7 @@ Les requêtes de santé du Backend continuent de renvoyer `HTTP 200` pendant l'e
 
 #### 12. Déclencheur SCM
 
-Configuration de la scrutation périodique du dépôt Git pour détecter les changements.
+La scrutation périodique du dépôt Git déclenche automatiquement le pipeline lorsqu'un changement est détecté.
 
 ![Déclencheur SCM](Screenshots/12-configuration-declencheur-scm.png)
 
@@ -740,7 +736,7 @@ Configuration du pipeline Jenkins pour récupérer le `Jenkinsfile` depuis le d�
 
 #### 14. Journal de scrutation Git
 
-Consultation du journal Jenkins confirmant la détection d'un changement sur la branche `main` du dépôt GitHub.
+Le journal Jenkins confirme la détection automatique d'un changement sur la branche `main` du dépôt GitHub.
 
 ![Journal de scrutation Git](Screenshots/14-journal-scrutation-git.png)
 
