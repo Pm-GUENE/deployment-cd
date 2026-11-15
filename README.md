@@ -593,6 +593,21 @@ La donnée insérée avant le redémarrage est toujours présente après le red�
 
 La persistance PostgreSQL est donc validée.
 
+### 11.5. Disponibilité pendant le redéploiement
+
+Pendant l'exécution du pipeline Jenkins, une requête répétée a été envoyée à l'endpoint de santé du Backend :
+
+```bash
+while true; do
+  printf '%s ' "$(date '+%H:%M:%S')"
+  curl -s -o /dev/null -w 'HTTP %{http_code} - %{time_total}s\n' \
+    http://localhost/api/health
+  sleep 1
+done
+```
+
+Les réponses `HTTP 200` visibles pendant le redéploiement indiquent que l'endpoint est resté accessible pendant la période observée. Cette vérification illustre la disponibilité du service lors de cette exécution ; elle ne constitue pas une garantie générale d'absence d'interruption pour tous les déploiements.
+
 ---
 
 ## 12. Résultats du pipeline CD
@@ -637,6 +652,7 @@ Finished: SUCCESS
 | Redéploiement automatique | VALIDÉ |
 | Exécution réussie du pipeline | VALIDÉ |
 | Test de persistance après redémarrage | VALIDÉ |
+| Disponibilité observée pendant le redéploiement | VALIDÉ |
 
 ### 12.1 Captures d'écran
 
@@ -703,6 +719,12 @@ Récupération des images Docker Hub par le pipeline.
 Redéploiement des services par le pipeline Jenkins.
 
 ![Redéploiement](Screenshots/10-redeploiement.png)
+
+#### 11. Disponibilité pendant le redéploiement
+
+Les requêtes de santé du Backend continuent de renvoyer `HTTP 200` pendant l'exécution du pipeline affiché.
+
+![Disponibilité pendant le redéploiement](Screenshots/11-disponibilite-pendant-redeploiement.png)
 
 Les captures servent de complément aux configurations et résultats décrits dans ce document. Les secrets et mots de passe ne doivent pas apparaître dans les captures partagées.
 
