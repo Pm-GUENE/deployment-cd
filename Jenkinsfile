@@ -25,6 +25,13 @@ pipeline {
             }
         }
 
+        stage('Verification du Polling SCM') {
+            steps {
+                echo 'POLLING SCM : nouvelle modification detectee depuis GitHub !'
+                echo 'CLINIC-CD - Version de verification 1.1'
+            }
+        }
+
         stage('Recuperation des images') {
             steps {
                 sh '''
