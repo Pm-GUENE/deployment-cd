@@ -726,6 +726,18 @@ Les requêtes de santé du Backend continuent de renvoyer `HTTP 200` pendant l'e
 
 ![Disponibilité pendant le redéploiement](Screenshots/11-disponibilite-pendant-redeploiement.png)
 
+#### 12. Déclencheur SCM
+
+Configuration de la scrutation périodique du dépôt Git pour détecter les changements.
+
+![Déclencheur SCM](Screenshots/12-configuration-declencheur-scm.png)
+
+#### 13. Pipeline relié au dépôt Git
+
+Configuration du pipeline Jenkins pour récupérer le `Jenkinsfile` depuis le dépôt GitHub.
+
+![Pipeline relié au dépôt Git](Screenshots/13-configuration-pipeline-scm.png)
+
 Les captures servent de complément aux configurations et résultats décrits dans ce document. Les secrets et mots de passe ne doivent pas apparaître dans les captures partagées.
 
 ---
